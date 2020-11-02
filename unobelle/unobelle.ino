@@ -51,7 +51,6 @@ String phrases[] = {"Well, I do have ",
                     "you created!",};
 
 // musical things
-// frequency dictionary (map notes to freqs)
 int noteDelays[] = {1895, 1787, 1687, 1592, 1503, 1418, 1337, 1263, 1192, 1125, 1062, 1001,
                     945, 891, 842, 794, 750, 707, 667, 629, 595, 561, 529, 500};
 String notes[] = {"c ", "c+", "d ", "d+", "e ", "f ", "f+", "g ", "g+", "a ", "a+", "b ", // lower octave
@@ -134,7 +133,6 @@ void playSong() {
       curNote = song[i];
     }
     if (i != 15 && song[i + 1] == LONGNOTE) {
-      Serial.print("hit!");
       curLen = songDt;
     } else {
       curLen = songDt / 2;
@@ -146,8 +144,7 @@ void playSong() {
         digitalWrite(stepPin, LOW);
         delayMicroseconds(noteDelays[curNote]);
       }
-    }
-    // go to the next note! 
+    } 
     startTime = millis();
   }
   lcd.noCursor();
@@ -179,7 +176,6 @@ void setup() {
 }
   
 void loop() {
-  // put your main code here, to run repeatedly:
   switch (state){
     case 0:  // editor state
       // poll play button and if play button pressed, break
