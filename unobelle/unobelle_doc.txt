@@ -1,0 +1,40 @@
+Pictures are attached in the repository.
+This is definitely not the correct way to do it, but I have another project in mind and I want to get working on it...
+
+MCP23017
+Responsible for polling the 16 "note" buttons for input.)
+UNO A4 -> MCP23017 SDL
+UNO A5 -> MCP23017 SCK
+top row of buttons -> MCP23017 GPA0 to GPA7
+	leftmost = 0, rightmost = 7
+bottom row of buttons -> MCP23017 GPB0 to GPB7
+	leftmost = 0, rightmost = 7
+MCP23017 A0, A1, A2 -> GND
+MCP23017 RESET -> 10K resistor -> 5V
+
+LCD
+Displays the song
+LCD VSS -> GND (UNO)
+LCD VDD -> 5V (UNO)
+potentiometer output -> V0
+LCD RW -> GND (UNO)
+LCD A -> 5V (UNO)
+LCD K -> GND (UNO)
+UNO 7 -> LCD RS
+UNO 8 -> LCD E
+UNO 9 -> LCD D4
+UNO 10 -> LCD D5
+UNO 11 -> LCD D6
+UNO 12 -> LCD D7
+
+A4988
+Drives the NEMA-17 stepper motor
+A4988 SLEEP and A4988 RESET connected together
+UNO 3 -> A4988 STEP
+UNO 4 -> A4988 DIR
+wall supply (12V 2A) -> barrel jack -> 100uF capacitor (+) -> A4988 VMOT
+wall supply (12V 2A) -> barrel jack -> 100uF capacitor (-) -> A4988 GND
+A4988 1A, 1B, 2A, 2B -> NEMA-17 A, C, B, D
+	(just make sure the connection pair for each coil matches with 1 or 2)
+A4988 VDD -> 5V (UNO)
+A4988 GND -> GND (UNO)
